@@ -18,8 +18,7 @@
     </style>
 </head>
 <body>
-<h1>USRPS Championship 2020 Prototype</h1>
-<p>03.05.2022</p>
+<h1>USRPS Championship 2022</h1>
 <div id="games">
     <h2>Game Rounds</h2>
     <div class="row">
