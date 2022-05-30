@@ -15,6 +15,7 @@
 </head>
 <body>
 
+<h1>Füge einen neuen Eintrag hinzu</h1>
 <form action="insert_game.php" method="post">
     <div class="mb-3">
         <label for="spieler1" class="form-label">1. Spieler</label>
@@ -55,9 +56,8 @@ if (isset($_POST['spieler1'])) {
         $conn = DriverManager::getConnection($connectionParams);
 
         $currentDate = new DateTime();
-
         $conn->insert('RUNDE', [
-            'zeitpunkt' => $currentDate->format('Y-m-d H:i:s'),
+            'zeitpunkt' => $currentDate->format('Y-m-d H:i'),
             'spieler1' => $_POST['spieler1'],
             'spieler2' => $_POST['spieler2'],
             'symbol1' => $_POST['symbol1'],

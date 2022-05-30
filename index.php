@@ -61,7 +61,7 @@
     <button class="btn btn-primary">Neuen Eintrag hinzufügen</button>
 </a>
 <a href="src/delete_game.php">
-    <button class="btn btn-secondary">Einen Eintrag löschen</button>
+    <button class="btn btn-danger">Einen Eintrag löschen</button>
 </a>
 </body>
 </html>
