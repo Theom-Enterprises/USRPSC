@@ -13,3 +13,5 @@ VALUES ('2022-05-20 09:05', 'Max', 'Otto', 'Schere', 'Stein'),
        ('2022-05-21 11:00', 'Max', 'Otto', 'Papier', 'Papier'),
        ('2022-05-22 08:15', 'Max', 'Otto', 'Papier', 'Stein'),
        ('2022-05-24 09:50', 'Max', 'Otto', 'Schere', 'Papier');
+
+DELETE FROM RUNDE;

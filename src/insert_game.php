@@ -25,14 +25,25 @@
         <label for="spieler2" class="form-label">2. Spieler</label>
         <input type="text" class="form-control" id="spieler2" name="spieler2" required>
     </div>
+
     <div class="mb-3">
-        <label for="symbol1" class="form-label">Symbol des 1. Spieler</label>
-        <input type="text" class="form-control" id="symbol1" name="symbol1" required>
+        <select class="form-select" aria-label="Symbol des 1. Spielers" name="symbol1" required>
+            <option value="" selected disabled>Symbol des 1. Spielers</option>
+            <option value="Schere">Schere</option>
+            <option value="Stein">Stein</option>
+            <option value="Papier">Papier</option>
+        </select>
     </div>
+
     <div class="mb-3">
-        <label for="symbol2" class="form-label">Symbol des 2. Spieler</label>
-        <input type="text" class="form-control" id="symbol2" name="symbol2" required>
+        <select class="form-select" aria-label="Symbol des 2. Spielers" name="symbol2" required>
+            <option value="" selected disabled>Symbol des 2. Spielers</option>
+            <option value="Schere">Schere</option>
+            <option value="Stein">Stein</option>
+            <option value="Papier">Papier</option>
+        </select>
     </div>
+
     <button type="submit" class="btn btn-primary">Hinzufügen</button>
     <a href="../index.php">
         <button type="button" class="btn btn-secondary">Zurück</button>
@@ -55,7 +66,7 @@ if (isset($_POST['spieler1'])) {
     try {
         $conn = DriverManager::getConnection($connectionParams);
 
-        $currentDate = new DateTime();
+        $currentDate = new DateTime('now', new DateTimeZone('Europe/Vienna'));
         $conn->insert('RUNDE', [
             'zeitpunkt' => $currentDate->format('Y-m-d H:i'),
             'spieler1' => $_POST['spieler1'],
@@ -63,6 +74,7 @@ if (isset($_POST['spieler1'])) {
             'symbol1' => $_POST['symbol1'],
             'symbol2' => $_POST['symbol2']
         ]);
+        header('Location: /index.php');
     } catch (\Doctrine\DBAL\Exception $e) {
         echo $e->getMessage();
     }

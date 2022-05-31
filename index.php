@@ -15,6 +15,10 @@
         .card {
             margin-bottom: 20px;
         }
+
+        .delete {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -23,6 +27,7 @@
     <h2>Game Rounds</h2>
     <div class="row">
         <?php
+
         use Doctrine\DBAL\DriverManager;
 
         require_once 'vendor/autoload.php';
@@ -43,7 +48,10 @@
             echo '<div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">';
-            echo '<h5 class="card-title">' . $game['zeitpunkt'] . '</h5>';
+            echo '<div class=" d-flex justify-content-between w-100"><h5>' . $game['zeitpunkt'] . '
+                  </h5>
+                  <button type="button" class="btn-close delete" aria-label="Close"></button>
+                  </div>';
             echo '<h5 class="card-subtitle text-muted">' . $game['spieler1'] . ' vs ' . $game['spieler2'] . '</h5><br>';
             echo '<div class="card-text">';
             echo '<p>Symbol von ' . $game['spieler1'] . ': ' . $game['symbol1'] . '</p>';
@@ -56,6 +64,8 @@
         ?>
     </div>
 </div>
+<script>
+</script>
 <a href="src/insert_game.php">
     <button class="btn btn-primary">Neuen Eintrag hinzufügen</button>
 </a>
